@@ -1,0 +1,52 @@
+levels(){
+	entry(Minefield) {
+		file="http://meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=levels/Minefield.map"
+		author=Tedium
+		version=1
+	}
+	entry(Flight) {
+		file="http://meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=levels/Flight.map"
+		author=Tedium
+		version=1
+	}
+	entry(Fragile) {
+		file="http://meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=levels/Fragile.map"
+		author=Edward_Lii
+		version=1
+	}
+}
+levelpacks(){
+	entry("Castle Rescue") {
+		file="meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=levelpacks/CastleRescue.zip"
+		author=Edward_Lii
+		version=2
+		folder="Castle Rescue"
+	}
+	entry("Expansion") {
+		file="http://meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=levelpacks/Expansion.zip"
+		author=Tedium
+		version=1
+		folder="Expansion"
+	}
+	entry("Geometry to Chaos") {
+		file="http://meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=levelpacks/Geometry%20to%20Chaos.zip"
+		author=leovilok
+		version=2
+		folder="Geometry to Chaos"
+	}
+	entry("MCMic levels") {
+		file="http://meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=levelpacks/mcmiclevels.zip"
+		author=MCMic
+		version=1
+		folder=MCMic
+	}
+}
+themes(){
+	entry("Pixel Castle") {
+		file="http://meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=themes/Pixel%20Castle.zip"
+		author=leovilok
+		version=2
+		folder="Pixel Castle"
+	}
+
+}
