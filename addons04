@@ -45,7 +45,7 @@ themes(){
 	entry("Pixel Castle") {
 		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/themes/Pixel%20Castle.zip?format=raw&/Pixel%20Castle.zip"
 		author=leovilok
-		version=2
+		version=3
 		folder="Pixel Castle"
 	}
 
