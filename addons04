@@ -1,41 +1,41 @@
 levels(){
 	entry(Minefield) {
-		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levels/Minefield.map?format=raw"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levels/Minefield.map?format=raw&/Minefield.map"
 		author=Tedium
 		version=1
 	}
 	entry(Flight) {
-		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levels/Flight.map?format=raw"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levels/Flight.map?format=raw&/Flight.map"
 		author=Tedium
 		version=1
 	}
 	entry(Fragile) {
-		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levels/Fragile.map?format=raw"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levels/Fragile.map?format=raw&/Fragile.map"
 		author=Edward_Lii
 		version=1
 	}
 }
 levelpacks(){
 	entry("Castle Rescue") {
-		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levelpacks/CastleRescue.zip?format=raw"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levelpacks/CastleRescue.zip?format=raw&/CastleRescue.zip"
 		author=Edward_Lii
 		version=2
 		folder="Castle Rescue"
 	}
 	entry("Expansion") {
-		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levelpacks/Expansion.zip?format=raw"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levelpacks/Expansion.zip?format=raw&/Expansion.zip"
 		author=Tedium
 		version=1
 		folder="Expansion"
 	}
 	entry("Geometry to Chaos") {
-		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levelpacks/Geometry%20to%20Chaos.zip?format=raw"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levelpacks/Geometry%20to%20Chaos.zip?format=raw&/Geometry%20to%20Chaos.zip"
 		author=leovilok
 		version=2
 		folder="Geometry to Chaos"
 	}
 	entry("MCMic levels") {
-		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levelpacks/mcmiclevels.zip?format=raw"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levelpacks/mcmiclevels.zip?format=raw&/mcmiclevels.zip"
 		author=MCMic
 		version=1
 		folder=MCMic
@@ -43,7 +43,7 @@ levelpacks(){
 }
 themes(){
 	entry("Pixel Castle") {
-		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/themes/Pixel%20Castle.zip?format=raw"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/themes/Pixel%20Castle.zip?format=raw&/Pixel%20Castle.zip"
 		author=leovilok
 		version=2
 		folder="Pixel Castle"
