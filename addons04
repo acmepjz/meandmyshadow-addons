@@ -1,41 +1,41 @@
 levels(){
 	entry(Minefield) {
-		file="http://meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=levels/Minefield.map"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levels/Minefield.map?format=raw"
 		author=Tedium
 		version=1
 	}
 	entry(Flight) {
-		file="http://meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=levels/Flight.map"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levels/Flight.map?format=raw"
 		author=Tedium
 		version=1
 	}
 	entry(Fragile) {
-		file="http://meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=levels/Fragile.map"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levels/Fragile.map?format=raw"
 		author=Edward_Lii
 		version=1
 	}
 }
 levelpacks(){
 	entry("Castle Rescue") {
-		file="meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=levelpacks/CastleRescue.zip"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levelpacks/CastleRescue.zip?format=raw"
 		author=Edward_Lii
 		version=2
 		folder="Castle Rescue"
 	}
 	entry("Expansion") {
-		file="http://meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=levelpacks/Expansion.zip"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levelpacks/Expansion.zip?format=raw"
 		author=Tedium
 		version=1
 		folder="Expansion"
 	}
 	entry("Geometry to Chaos") {
-		file="http://meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=levelpacks/Geometry%20to%20Chaos.zip"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levelpacks/Geometry%20to%20Chaos.zip?format=raw"
 		author=leovilok
 		version=2
 		folder="Geometry to Chaos"
 	}
 	entry("MCMic levels") {
-		file="http://meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=levelpacks/mcmiclevels.zip"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levelpacks/mcmiclevels.zip?format=raw"
 		author=MCMic
 		version=1
 		folder=MCMic
@@ -43,7 +43,7 @@ levelpacks(){
 }
 themes(){
 	entry("Pixel Castle") {
-		file="http://meandmyshadow.git.sourceforge.net/git/gitweb.cgi?p=meandmyshadow/meandmyshadow;a=blob_plain;f=themes/Pixel%20Castle.zip"
+		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/themes/Pixel%20Castle.zip?format=raw"
 		author=leovilok
 		version=2
 		folder="Pixel Castle"
