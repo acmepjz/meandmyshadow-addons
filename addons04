@@ -31,7 +31,7 @@ levelpacks(){
 	entry("Geometry to Chaos") {
 		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/levelpacks/Geometry%20to%20Chaos.zip?format=raw&/Geometry%20to%20Chaos.zip"
 		author=leovilok
-		version=2
+		version=3
 		folder="Geometry to Chaos"
 	}
 	entry("MCMic levels") {
@@ -45,7 +45,7 @@ themes(){
 	entry("Pixel Castle") {
 		file="http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/themes/Pixel%20Castle.zip?format=raw&/Pixel%20Castle.zip"
 		author=leovilok
-		version=3
+		version=2
 		folder="Pixel Castle"
 	}
 
