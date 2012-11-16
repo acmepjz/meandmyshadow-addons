@@ -1,0 +1,461 @@
+#!/bin/bash
+
+# Copyright (C) 2012 Me and My Shadow
+#
+# This file is part of Me and My Shadow.
+#
+# Me and My Shadow is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Me and My Shadow is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Me and My Shadow.  If not, see <http://www.gnu.org/licenses/>.
+
+# The version of the script, this should be updated with every change.
+# Format is DDMMYEAR + letter (in case of multiple updates on one day).
+VERSION="16112012a"
+
+# Check if the config file is present.
+# NOTE: The script only checks if the config file is present, it does not
+#  check if all the key value pairs are present.
+if [ ! -f ./config.sh ] 
+then
+    echo "ERROR: Missing configuration file!"
+    exit 0
+fi
+# It exists so load it.
+. config.sh
+
+# This method will print the default usage message.
+# It gets called when no subcommand or an unkown subcommand is entered.
+function usage {
+    echo "Me and My Shadow addon moderation version: $VERSION"
+    echo "Usage: $0 <subcommand> [args]"
+    echo ""
+    echo "Available subcommands:"
+    echo -e "\t queue \t\t Show a list of queue entry."
+    echo -e "\t focus \t\t Focus on a queue entry."
+    echo -e "\t blur \t\t Remove focus from a queue entry."
+    echo -e "\t view \t\t Print the header of the current focus and exit."
+    echo -e "\t test \t\t Test the focused entry."
+    echo -e "\t edit \t\t Edit the header of the focused entry."
+    echo -e "\t revert \t Revert all changes made to the focused entry." 
+    echo -e "\t remove (rm) \t Remove the focused entry from the addon server."
+    echo -e "\t status (st) \t Show a short status report of the focus and the repository."
+    echo -e "\t update \t Make sure the git repository is up to date and doesn't contain any changes."
+    echo -e "\t commit \t Place the focus in the repository update the addonslist and commit."
+    echo -e "\t push \t\t Push the changes to the online addon repository."
+    echo -e "\t help \t\t Show this usage message or get more information about a subcommand."
+}
+
+# Function that will show an "are you sure?" prompt.
+function confirm {
+    read -r -p "${1:-Are you sure? [Y/n]} " response
+    case $response in
+	[yY][eE][sS]|[yY]) 
+	    true
+	    ;;
+	*)
+	    false
+	    ;;
+    esac
+}
+
+# Method that will use curl to retrieve the queue from the server.
+function queue {
+    # Recieve the queue from the addon server.
+    curl $addon_server$command_dir/get_queue.php
+}
+
+# Method that will download a given queue entry.
+function focus {
+    # Check if a second argument is given.
+    if [ ! -z $2 ] 
+    then
+	# Check if there's already a focus.
+	if [ $focus -eq 1 ]
+	then
+	    echo "There is already a focus"
+	    ! confirm && exit
+	fi
+	
+	# Now check if it's a local file or online.
+	# FIXME: Bad practice, if the filename contains a dash it's from the online queue?
+	if [[ $2 == *"-"* ]]
+	then
+	    curl $addon_server$queue_dir$2 > focus
+	else
+	    # Make sure it isn't the same input as output file (this indicates internal use of the focus method).
+	    if [[ $2 != "focus" ]]
+	    then
+		# Store the content of the file in the focus file.
+		cat $2 > focus
+	    fi
+	fi
+
+	# Make sure it isn't the same input as output file (this indicates internal use of the focus method).
+	if [[ $2 != "focus" ]]
+	then
+	    # Now write some information to the focus.sh file.
+	    echo "focus=1" >> focus.sh
+	    echo "focus_src=$2" >> focus.sh
+	    echo "focus_md5="$(md5sum focus | awk '/  /{print $1}') >> focus.sh
+	
+	    # NOTE: We source the focus.sh directly to prevent old variables interfering.
+	    . focus.sh
+	fi
+
+	# Now split the queue entry into a header and a body.
+	awk '/--/{ x=1; getline }; {if (x==0) print $0}' focus > $HEADER
+	awk '/--/{ x=1; getline }; {if (x==1) print $0}' focus > $BODY
+    else
+	# Missing argument.
+	echo "WARNING: Missing argument."
+	echo "Usage: $0 focus <queue file>"
+    fi
+}
+
+# This method simply discards the focus.
+function blur {
+    if [ $focus -eq 1 ]
+    then
+	! confirm "Remove current focus, all edits will be lost [Y/n] " && exit
+	# Remove both the focus file and the focus.sh file.
+	unlink focus
+	unlink focus.sh
+    else
+	echo "WARNING: Unable to blur, no queue entry focused."
+    fi
+}
+
+# Output the header of the current focus and exit.
+function view {
+    # Check if there's a focus.
+    if [ $focus -eq 1 ]
+    then
+	cat $HEADER
+    else
+	echo "WARNING: Unable to show header, no queue entry focused."
+    fi
+}
+
+# Function that will start up meandmyshadow and automatically start the current focus.
+function test_entry {
+    # TODO: Implement a test feature for both maps and levelpacks (and themes?).
+    echo "Not yet implemented."
+}
+
+function edit {
+    # Check if there's a focus.
+    if [ $focus -eq 1 ]
+    then
+	# Check if a second argument is given.
+	if [ ! -z $2 ] 
+	then
+	    if [[ $2 == "body" ]]
+	    then
+		echo "Body is stored in $BODY"
+		echo "Press ENTER when done editing..."
+		read
+
+		# Now write it to a new file.
+		# FIXME: Code duplication.
+		cat $HEADER > focus
+		echo "--" >> focus
+		cat $BODY >> focus
+		exit
+	    elif [[ $2 != "header" ]]
+	    then
+		echo "WARNING: Unkown edit type, only 'body' and 'header' are allowed."
+		exit
+	    fi
+	fi
+
+	# Open the header in the configured editor.
+	$editor $HEADER
+	# Now write it to a new file.
+	cat $HEADER > focus
+	echo "--" >> focus
+	cat $BODY >> focus
+    else
+	echo "Unable to edit, no queue entry focused."
+    fi
+}
+
+# Method that will try to revert the current focus.
+function revert {
+    if [ $focus -eq 1 ]
+    then
+	# Now check if any edit has been made.
+	md5=$(md5sum focus | awk '/  /{print $1}')
+	if [[ $md5 == $focus_md5 ]]
+	then
+	    # No edits have been made so nothing to revert.
+	    echo "Nothing to revert, no edits have been made."
+	else
+	    # Now try to revert the entry.
+	    # Store the original md5sum of the focus to check if the focus source has changed.
+	    md5=$focus_md5
+	    
+	    # Reverting is basically re-focussing.
+	    # TODO: Add error handling for when the source file has been removed?
+	    focus=0
+	    focus "" $focus_src
+
+	    # Compare the new md5sum against the stored md5sum.
+	    if [[ $md5 != $focus_md5 ]]
+	    then
+		echo "WARNING: Source file has changed!"
+	    else
+		echo "Focus has successfully been reverted."
+	    fi
+	fi
+    else
+	echo "Unable to revert, no queue entry focused."
+    fi
+}
+
+# Method that will send a remove request to the server.
+# NOTE: This doesn't mean the entry has been committed.
+# NOTE: The local copy isn't removed on purpose to allow fixing an 'accident'.
+function remove {
+    # Check if a focus needs to be removed or a given queue entry. 
+    if [ $focus -eq 1 ]
+    then
+	# Ask the user for confirmation.
+	! confirm "Are you sure you want to remove the focused entry? [Y/n] " && exit
+	echo "Action requires password"
+	stty -echo
+	read -r -p "Password: " password; echo
+	stty echo
+	
+	# Now sent the post request using curl.
+	curl --data "name=$username&password=$password&entry=$focus_src" $addon_server$command_dir/remove_entry.php
+    else
+	# Check if a second argument is given.
+	if [ ! -z $2 ] 
+	then
+	    # There is a second argument so start formulating the HTTP POST request.
+	    # We already have the username, just need the password.
+	    echo "Action requires password"
+	    stty -echo
+	    read -r -p "Password: " password; echo
+	    stty echo
+	    
+	    # Now sent the post request using curl.
+	    curl --data "name=$username&password=$password&entry=$2" $addon_server$command_dir/remove_entry.php
+	else
+	    # Missing argument.
+	    echo "WARNING: No entry to remove, either focus one or specify one."
+	    echo "Usage: $0 remove <queue file>"
+	fi
+    fi
+    password=
+    echo $password
+}
+
+# Method that will show the current status (of the focused entry).
+function status {
+    # First show the focus information.
+    echo " -----------------"
+    echo "| Current focus:  |"
+    echo " -----------------"
+
+    if [ $focus -eq 1 ]
+    then
+	echo "Focus on queue entry."
+	# Now check if any edit has been made.
+	md5=$(md5sum focus | awk '/  /{print $1}')
+	if [[ $md5 == $focus_md5 ]]
+	then
+	    echo "No edits have been made."
+	else
+	    echo "focused entry has been editted."
+	fi
+    else
+	echo "Currently no queue entry focus."
+    fi
+
+    # Now show the repository status.
+    echo ""
+    echo " -----------------"
+    echo "| Git repository: |"
+    echo " -----------------"
+
+    git --work-tree=$git_repository_dir --git-dir=$git_repository_dir/.git/ status
+}
+
+# Method that will make sure the local copy of the addon repository is up to date.
+function update {
+    echo "Updating local copy of the addon repository."
+    cd $git_repository_dir
+    git pull
+}
+
+# Method that will commit the current focus to the local copy of the addon repository.
+function commit {
+    # Step one: source the header.
+    # NOTE: This is quite risky so let the moderator acknowledge.
+    # FIXME: Find a better, safer solution.
+    echo "Going to source the header of the current focus."
+    echo "If you don't trust something in this header abort the commit."
+    # FIXME: I have to convert line endings (why?)
+    dos2unix $HEADER
+    cat $HEADER | sed -e 's/^/    /'
+    
+    ! confirm "Continue with sourcing this file? [Y/n]" && exit
+    . $HEADER
+
+    # Step two: Determine the type and place the body in the addon repository.
+    case $type in
+	"MAP") TYPE="levels" && EXTENSION="map" ;;
+	"PACK") TYPE="levelpacks" && EXTENSION="zip" ;;
+	"THEME") TYPE="themes" && EXTENSION="zip" ;;
+	*) echo "WARNING: Unkown addon type '$type'." && exit ;;
+    esac
+    # Suggest a file name for the body.
+    echo ""
+    DESTINATION="$git_repository_dir/$TYPE/$name.$EXTENSION"
+    # TODO: Allow moderator to change destination?
+    ! confirm "Place body in $DESTINATION? [Y/n]" && exit
+    cp $BODY $DESTINATION
+
+    # Step three: Generate the blob that will be entered in the addons file.
+    # We make a temp file for this to allow easy manual editing.
+    BLOB=$(mktemp)
+    echo -e "\tentry(\"$name\"){" > $BLOB
+    echo -e "\t\tfile=\"http://sourceforge.net/p/meandmyshadow/addons/ci/HEAD/tree/$TYPE/$name.$EXTENSION?format=raw&/$name.$EXTENSION\"" >> $BLOB
+    echo -e "\t\tauthor=$username" >> $BLOB
+    echo -e "\t\tversion=1" >> $BLOB
+    case $type in
+	"PACK"|"THEME") echo -e "\t\tfolder=$name" >> $BLOB ;;
+    esac
+    echo -e "\t}" >> $BLOB
+
+    # Let the moderator verify the blob.
+    echo "Generated blob, please verify:"
+    cat $BLOB | sed -e 's/^/    /'
+    confirm "Want to edit the blob? [Y/n]" && $editor $BLOB
+
+    # Step four: Let the moderator select the addon list(s) to add to.
+    for file in `ls $git_repository_dir/addons* | xargs -n1 basename`
+    do
+	ADDON_LIST="$git_repository_dir/$file"
+	if confirm "Add entry to $file? [Y/n]"
+	then
+	    echo "Inserting blob in $ADDON_LIST..."
+	    sed -i '/'$TYPE'(){/ {r '$BLOB'
+	    };' $ADDON_LIST
+	fi
+    done
+    
+    #Step five: Commit to the local copy of the addon repository.
+    git --work-tree=$git_repository_dir --git-dir=$git_repository_dir/.git/ add .
+    git --work-tree=$git_repository_dir --git-dir=$git_repository_dir/.git/ commit -a
+
+    #Step six: Inform the moderator what to do next.
+    echo "Changes committed, run '$0 push' when ready."
+}
+
+# Method that pushes the changes made to the local addon repository to the online repository.
+function push {
+    echo "Going to push comitted changes to the online addon repository."
+    ! confirm && exit
+
+    # Let git push the changes.
+    cd $git_repository_dir
+    git push origin
+
+    # And tell the user what to do next.
+    echo "Changes pushed to online repository, queue entry needs to be removed."
+    ! confirm "Remove queue entry from queue server? [Y/n]" && exit
+    remove
+
+    ! confirm "Blur the (removed) queue entry? [Y/n]" && exit
+    blur
+}
+
+
+# Method that will, depending on the second argument, show subcommand specific help.
+function showhelp {
+    # First check if there is a second argument.
+    if [ -z $2 ]
+    then
+	# There isn't one so show the usage message and exit.
+	usage
+	exit
+    fi
+
+    # Now check which subcommand it is.
+    case $2 in
+	"queue") echo "Fetches a list of queue entries from the configured addon server." ;;
+	"focus") echo "Focus on either an online queue entry or an offline file." ;;
+	"blur")  echo "Removes the focus, if present." ;;
+	"view")  echo "Output the header of the current focus, shows the local header so it may contain edits." ;;
+	"test")  echo "Not yet implemented." ;;
+	"edit")  echo "Make edits to the current focus." ;;
+	"revert")  echo "Revert any changes made to the focus, original source file needs to be " ;;
+	"remove" | "rm") echo "Remove the current focused entry or a given entry from the configured addon server." ;;
+	"status" | "st") echo "Show the current status regarding the focus and local copy of the addon repository." ;;
+	"update") echo "Make sure the local copy of the addon repository is up to date." ;;
+	"commit") echo "Place the current focus, along with any changes in the local addon repository." ;;
+	"push") echo "Push the changes made to the local copy of the addon repository (using $0 commit) to the online addon repository." ;;
+	"help") echo "Show the usage message or more information about a subcommand." ;;
+	*) echo "WARNING: Unkown command \"$2\"." ;;
+    esac
+}
+
+# Create two temp files to hold the header and body of the focused entry.
+focus=0
+HEADER=$(mktemp)
+BODY=$(mktemp)
+trap "rm $HEADER $BODY" EXIT
+# Check if there's a focus file.
+if [ -f ./focus ] 
+then
+    # There is a focus file so split it to (temp) header and body files.
+    focus "" "focus" >&2
+    # Now set focus true.
+    focus=1
+
+    # Check if the focus.sh file exist, it should.
+    if [ -f ./focus.sh ]
+    then
+	# The file is present so load it.
+	. focus.sh
+    else
+	echo "FATAL ERROR: focused entry is corrupt!"
+	echo "Run '$0 blur' to clear any focus leftovers."
+    fi
+fi
+
+# If no arguments are given output the usage message.
+if [ -z $1 ]
+then
+    usage
+    exit
+fi
+
+# Parse the first argument (the subcommand).
+case $1 in
+    "queue") queue ;;
+    "focus")  focus $@ ;;
+    "blur")  blur ;;
+    "view")  view ;;
+    "test")  test_entry ;;
+    "edit")  edit $@ ;;
+    "revert")  revert ;;
+    "remove" | "rm") remove $@ ;;
+    "status" | "st") status ;;
+    "update") update ;;
+    "commit") commit ;;
+    "push") push ;;
+    "help") showhelp $@ ;;
+    *) echo "WARNING: Unkown command \"$1\"." && usage ;;
+esac
