@@ -17,3 +17,49 @@ category(levels){
 		version=1
 	}
 }
+
+category(levelpacks){
+	entry("Castle Rescue") {
+		file="levelpacks/CastleRescue.zip"
+		author=Edward_Lii
+		version=2
+	}
+	entry("Clartech Space Station") {
+		file="levelpacks/Clartech%20Space%20Station.zip"
+		author=odamite
+		version=1
+	}
+	entry("Expansion") {
+		file="levelpacks/Expansion.zip"
+		author=Tedium
+		version=1
+	}
+	entry("Geometry to Chaos") {
+		file="levelpacks/Geometry%20to%20Chaos.zip"
+		author=leovilok
+		version=3
+	}
+	entry("MCMic levels") {
+		file="levelpacks/mcmiclevels.zip"
+		author=MCMic
+		version=1
+	}
+	entry("Twelve Pits") {
+		file="levelpacks/Twelve%20Pits.zip"
+		author=bgalon_2000
+		version=1
+	}
+}
+
+category(themes){
+	entry("Pixel Castle") {
+		file="themes/Pixel%20Castle.zip"
+		author=leovilok
+		version=2
+	}
+	entry("Space") {
+		file="themes/Space.zip"
+		author=odamite
+		version=1
+	}
+}
