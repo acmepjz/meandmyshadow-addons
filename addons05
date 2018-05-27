@@ -2,17 +2,17 @@ version=2
 
 category(levels){
 	entry(Minefield) {
-		file="https://github.com/acmepjz/meandmyshadow-addons/raw/master/levels/Minefield.zip"
+		file="levels/Minefield.zip"
 		author=Tedium
 		version=1
 	}
 	entry(Flight) {
-		file="https://github.com/acmepjz/meandmyshadow-addons/raw/master/levels/Flight.zip"
+		file="levels/Flight.zip"
 		author=Tedium
 		version=1
 	}
 	entry(Fragile) {
-		file="https://github.com/acmepjz/meandmyshadow-addons/raw/master/levels/Fragile.zip"
+		file="levels/Fragile.zip"
 		author=Edward_Lii
 		version=1
 	}
