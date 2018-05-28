@@ -49,6 +49,11 @@ category(levelpacks){
 		author=bgalon_2000
 		version=1
 	}
+	entry("Levels by squarecross") {
+		file="levelpacks/squarecross_levels.zip"
+		author=squarecross
+		version=1
+	}
 }
 
 category(themes){
