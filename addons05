@@ -54,6 +54,11 @@ category(levelpacks){
 		author=squarecross
 		version=1
 	}
+	entry("Ákos level pack") {
+		file="levelpacks/Akos_level_pack.zip"
+		author="Ákos"
+		version=1
+	}
 }
 
 category(themes){
