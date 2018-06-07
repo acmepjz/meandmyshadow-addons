@@ -72,4 +72,9 @@ category(themes){
 		author=odamite
 		version=1
 	}
+	entry("Orange") {
+		file="themes/Orange.zip"
+		author=Wuzzy
+		version=1
+	}
 }
