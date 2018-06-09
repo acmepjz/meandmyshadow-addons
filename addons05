@@ -57,7 +57,7 @@ category(levelpacks){
 	entry("Ákos level pack") {
 		file="levelpacks/Akos_level_pack.zip"
 		author="Ákos"
-		version=1
+		version=2
 	}
 }
 
