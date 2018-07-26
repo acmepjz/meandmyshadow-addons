@@ -31,7 +31,7 @@ category(levelpacks){
 * 12 levels
 * Small story
 * Target times and number of recordings
-* Boss battle. XD"
+* Boss battle. :D"
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=2816"
 		screenshot="screenshots/CastleRescue.jpg",eb07a86f0c48865c9c0cea0925c24a17
 	}
@@ -42,6 +42,7 @@ category(levelpacks){
 		description="The levels are not so much puzzle based but more action based."
 		license=CC0
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3360"
+		screenshot="screenshots/screenshot2.jpg",1729ee5d5a0c01feb9b6bc049b5df352
 	}
 	entry("Expansion") {
 		file="levelpacks/Expansion.zip"
@@ -53,7 +54,8 @@ category(levelpacks){
 		file="levelpacks/Geometry%20to%20Chaos.zip"
 		author=leovilok
 		version=3
-		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3319&p=32848
+		description="A 10 levels trip from a geometrical world to the land of chaos."
+		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3319
 https://forum.freegamedev.net/viewtopic.php?f=48&t=2922"
 		screenshot="screenshots/V.jpg",8a2a377c49bf5bb9b88290c045bc1855
 	}
@@ -66,16 +68,21 @@ https://forum.freegamedev.net/viewtopic.php?f=48&t=2922"
 		file="levelpacks/Twelve%20Pits.zip"
 		author=bgalon_2000
 		version=1
+		description="It’s a level pack with a difficulty level situated somewhat above tutorial and can be a good second or third pack to play for someone who discovered the game recently. It does not contain any difficult levels."
+		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3739"
 	}
 	entry("Levels by squarecross") {
 		file="levelpacks/squarecross_levels.zip"
 		author=squarecross
 		version=1
+		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=5351#p54947"
 	}
 	entry("Ákos level pack") {
 		file="levelpacks/Akos_level_pack.zip"
 		author="Ákos"
 		version=2
+		description="This level pack for the game Me and My Shadow was created by Akos. He was 12 at the time of creation. Enjoy!"
+		website="https://github.com/SanskritFritz/meandmyshadow_levelpack_akos"
 	}
 }
 
@@ -84,17 +91,39 @@ category(themes){
 		file="themes/Pixel%20Castle.zip"
 		author=leovilok
 		version=3
+		license="CC BY-SA 3.0"
+		description="I took some parts of Cloudscape and adapted some parts of a platformer asset i found on OGA
+(Monsterboy in Wonder World mockup assets by surt <https://opengameart.org/content/monsterboy-in-wonder-world-mockup-assets>).
+It's not a great theme but still I think it's fun :D ."
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=2922"
 	}
 	entry("Space") {
 		file="themes/Space.zip"
 		author=odamite
 		version=2
+		license="CC BY-SA 3.0"
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3360"
+		screenshot="screenshots/screenshot2.jpg",1729ee5d5a0c01feb9b6bc049b5df352
 	}
 	entry("Orange") {
 		file="themes/Orange.zip"
 		author=Wuzzy
 		version=2
+		description="Here's a weird and bright theme called ""Orange"".
+Because I like the color orange. And because the other themes are way too ""dark"" if you understand what I mean. ;-)
+
+As the name suggests, it is a theme, where everything is orange and the ""shadow"" is brown.
+The blocks, shadow blocks and fragile blocks are square-shaped oranges. They come in four slighlty different variants.
+The conveyor belts are represented by an orange peel. :D
+The background is colored orange, too. The sun is shining.
+The spikes are a shameless rip-off of the Pixel Caslte theme by Tedium, just tinted orange.
+""Me"", ""my shadow"", Exit, portal, checkpoint, switch, floor button and the key are just shamelessly copied from the Cloudscape theme by Tedium, just tinted orange. Nothing too special.
+
+This is probably not the final version. I really want to replace the rip-off spikes with something else. I don't know what. Spike oranges? Nah! Not weird enough. :lol:
+I don't know if I like the background. Note that the screenshot does not show the entire background.
+I probably change some other minor stuff in future, too. Who knows?"
+		license="CC BY-SA 3.0"
+		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3169"
+		screenshot="screenshots/orange_preview.jpg",e1d20ec8f2dc0274c0e3bffbcd7ddc96
 	}
 }
