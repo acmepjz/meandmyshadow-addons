@@ -5,6 +5,8 @@ category(levels){
 		file="levels/Minefield.zip"
 		author=Tedium
 		version=1
+		description="Inspired by an editor bug I reported I made a different level."
+		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=2462#p25622"
 	}
 	entry(Flight) {
 		file="levels/Flight.zip"
@@ -15,6 +17,7 @@ category(levels){
 		file="levels/Fragile.zip"
 		author=Edward_Lii
 		version=1
+		license=CC0
 	}
 }
 
@@ -23,21 +26,36 @@ category(levelpacks){
 		file="levelpacks/CastleRescue.zip"
 		author=Edward_Lii
 		version=2
+		description="The princess is trapped in the castle and it's your goal to rescue her.
+
+* 12 levels
+* Small story
+* Target times and number of recordings
+* Boss battle. XD"
+		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=2816"
+		screenshot="screenshots/CastleRescue.jpg",eb07a86f0c48865c9c0cea0925c24a17
 	}
 	entry("Clartech Space Station") {
 		file="levelpacks/Clartech%20Space%20Station.zip"
 		author=odamite
 		version=1
+		description="The levels are not so much puzzle based but more action based."
+		license=CC0
+		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3360"
 	}
 	entry("Expansion") {
 		file="levelpacks/Expansion.zip"
 		author=Tedium
 		version=1
+		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3222"
 	}
 	entry("Geometry to Chaos") {
 		file="levelpacks/Geometry%20to%20Chaos.zip"
 		author=leovilok
 		version=3
+		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3319&p=32848
+https://forum.freegamedev.net/viewtopic.php?f=48&t=2922"
+		screenshot="screenshots/V.jpg",8a2a377c49bf5bb9b88290c045bc1855
 	}
 	entry("MCMic levels") {
 		file="levelpacks/mcmiclevels.zip"
@@ -65,16 +83,18 @@ category(themes){
 	entry("Pixel Castle") {
 		file="themes/Pixel%20Castle.zip"
 		author=leovilok
-		version=2
+		version=3
+		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=2922"
 	}
 	entry("Space") {
 		file="themes/Space.zip"
 		author=odamite
-		version=1
+		version=2
+		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3360"
 	}
 	entry("Orange") {
 		file="themes/Orange.zip"
 		author=Wuzzy
-		version=1
+		version=2
 	}
 }
