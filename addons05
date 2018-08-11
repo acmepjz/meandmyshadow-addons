@@ -32,6 +32,7 @@ category(levelpacks){
 * Small story
 * Target times and number of recordings
 * Boss battle. :D"
+		license=CC0
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=2816"
 		screenshot="screenshots/CastleRescue.jpg",eb07a86f0c48865c9c0cea0925c24a17
 	}
