@@ -70,6 +70,7 @@ https://forum.freegamedev.net/viewtopic.php?f=48&t=2922"
 		author=bgalon_2000
 		version=1
 		description="It’s a level pack with a difficulty level situated somewhat above tutorial and can be a good second or third pack to play for someone who discovered the game recently. It does not contain any difficult levels."
+		license=GPLv3
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3739"
 	}
 	entry("Levels by squarecross") {
