@@ -82,8 +82,9 @@ https://forum.freegamedev.net/viewtopic.php?f=48&t=2922"
 	entry("Ákos level pack") {
 		file="levelpacks/Akos_level_pack.zip"
 		author="Ákos"
-		version=2
+		version=3
 		description="This level pack for the game Me and My Shadow was created by Akos. He was 12 at the time of creation. Enjoy!"
+		license=GPLv3
 		website="https://github.com/SanskritFritz/meandmyshadow_levelpack_akos"
 	}
 }
