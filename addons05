@@ -89,6 +89,13 @@ https://forum.freegamedev.net/viewtopic.php?f=48&t=2922"
 		license=GPLv3
 		website="https://github.com/SanskritFritz/meandmyshadow_levelpack_akos"
 	}
+	entry("Levels by acmepjz and xyzw") {
+		file="levelpacks/acmepjz_xyzw.zip"
+		author="acmepjz and xyzw"
+		version=1
+		description="Some puzzles, and some action-based levels."
+		license=CC0
+	}
 }
 
 category(themes){
