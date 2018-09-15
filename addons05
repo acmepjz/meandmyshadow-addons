@@ -1,18 +1,6 @@
 version=2
 
 category(levels){
-	entry(Minefield) {
-		file="levels/Minefield.zip"
-		author=Tedium
-		version=1
-		description="Inspired by an editor bug I reported I made a different level."
-		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=2462#p25622"
-	}
-	entry(Flight) {
-		file="levels/Flight.zip"
-		author=Tedium
-		version=1
-	}
 	entry(Fragile) {
 		file="levels/Fragile.zip"
 		author=Edward_Lii
@@ -44,21 +32,6 @@ category(levelpacks){
 		license=CC0
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3360"
 		screenshot="screenshots/screenshot2.jpg",1729ee5d5a0c01feb9b6bc049b5df352
-	}
-	entry("Expansion") {
-		file="levelpacks/Expansion.zip"
-		author=Tedium
-		version=1
-		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3222"
-	}
-	entry("Geometry to Chaos") {
-		file="levelpacks/Geometry%20to%20Chaos.zip"
-		author=leovilok
-		version=3
-		description="A 10 levels trip from a geometrical world to the land of chaos."
-		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3319
-https://forum.freegamedev.net/viewtopic.php?f=48&t=2922"
-		screenshot="screenshots/V.jpg",8a2a377c49bf5bb9b88290c045bc1855
 	}
 	entry("MCMic levels") {
 		file="levelpacks/mcmiclevels.zip"
