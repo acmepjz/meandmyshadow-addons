@@ -81,6 +81,7 @@ category(themes){
 (Monsterboy in Wonder World mockup assets by surt <https://opengameart.org/content/monsterboy-in-wonder-world-mockup-assets>).
 It's not a great theme but still I think it's fun :D ."
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=2922"
+		screenshot="screenshots/pixel_castle_preview.jpg",f35abd6ef41f400b5cac7d97f0f98fca
 	}
 	entry("Space") {
 		file="themes/Space.zip"
@@ -89,6 +90,7 @@ It's not a great theme but still I think it's fun :D ."
 		license="CC BY-SA 3.0"
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3360"
 		screenshot="screenshots/screenshot2.jpg",1729ee5d5a0c01feb9b6bc049b5df352
+		icon="icons/space_icon.png",e0b80a88121bce1db4e8b4df03349ea4
 	}
 	entry("Orange") {
 		file="themes/Orange.zip"
@@ -110,5 +112,6 @@ I probably change some other minor stuff in future, too. Who knows?"
 		license="CC BY-SA 3.0"
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3169"
 		screenshot="screenshots/orange_preview.jpg",e1d20ec8f2dc0274c0e3bffbcd7ddc96
+		icon="icons/orange_icon.png",e2ab80d81fdb8461d151d1b89265bced
 	}
 }
