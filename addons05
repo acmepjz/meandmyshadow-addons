@@ -95,23 +95,21 @@ It's not a great theme but still I think it's fun :D ."
 	entry("Orange") {
 		file="themes/Orange.zip"
 		author=Wuzzy
-		version=2
+		version=3
 		description="Here's a weird and bright theme called ""Orange"".
-Because I like the color orange. And because the other themes are way too ""dark"" if you understand what I mean. ;-)
+Because I like the color orange.
+Current version: 3
 
-As the name suggests, it is a theme, where everything is orange and the ""shadow"" is brown.
-The blocks, shadow blocks and fragile blocks are square-shaped oranges. They come in four slighlty different variants.
-The conveyor belts are represented by an orange peel. :D
-The background is colored orange, too. The sun is shining.
-The spikes are a shameless rip-off of the Pixel Caslte theme by Tedium, just tinted orange.
-""Me"", ""my shadow"", Exit, portal, checkpoint, switch, floor button and the key are just shamelessly copied from the Cloudscape theme by Tedium, just tinted orange. Nothing too special.
+It's a bright and highly saturated theme in which everything is in the color orange and there are lots of oranges, too! It makes MnMS much more colorful and is a nice change from the stormy and gray “Cloudscape” theme.
 
-This is probably not the final version. I really want to replace the rip-off spikes with something else. I don't know what. Spike oranges? Nah! Not weird enough. :lol:
-I don't know if I like the background. Note that the screenshot does not show the entire background.
-I probably change some other minor stuff in future, too. Who knows?"
+The sky is orange and cloudy (it's even animated a bit!), the blocks are oranges, the conveyor belts are orange peels, you are colored orange yourself, … You get the idea. :D
+
+
+CREDITS:
+Some parts I have drawn myself, and some parts of the theme are taken from the themes Cloudscape and Pixel Castle by Tedium. Background imagery is derivative artwork based on photos and images from Vera Kratochvil, Chris S and Daniel Gregory Benoy. Read the “License” file included in the download for detailed infos."
 		license="CC BY-SA 3.0"
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3169"
-		screenshot="screenshots/orange_preview.jpg",e1d20ec8f2dc0274c0e3bffbcd7ddc96
+		screenshot="screenshots/orange_preview_new.jpg",7163723a2d88a293d2e107695e34a2f5
 		icon="icons/orange_icon.png",e2ab80d81fdb8461d151d1b89265bced
 	}
 }
