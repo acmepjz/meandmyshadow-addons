@@ -82,6 +82,7 @@ category(themes){
 It's not a great theme but still I think it's fun :D ."
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=2922"
 		screenshot="screenshots/pixel_castle_preview.jpg",f35abd6ef41f400b5cac7d97f0f98fca
+		icon="icons/pixelcastle_icon.png",aad83d4da6668b457252aab884367ffd
 	}
 	entry("Space") {
 		file="themes/Space.zip"
@@ -90,7 +91,7 @@ It's not a great theme but still I think it's fun :D ."
 		license="CC BY-SA 3.0"
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3360"
 		screenshot="screenshots/screenshot2.jpg",1729ee5d5a0c01feb9b6bc049b5df352
-		icon="icons/space_icon.png",e0b80a88121bce1db4e8b4df03349ea4
+		icon="icons/space_icon.png",3b82709d8757fbc5962b85ef8a65fdec
 	}
 	entry("Orange") {
 		file="themes/Orange.zip"
@@ -110,6 +111,6 @@ Some parts I have drawn myself, and some parts of the theme are taken from the t
 		license="CC BY-SA 3.0"
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=3169"
 		screenshot="screenshots/orange_preview_new.jpg",7163723a2d88a293d2e107695e34a2f5
-		icon="icons/orange_icon.png",e2ab80d81fdb8461d151d1b89265bced
+		icon="icons/orange_icon.png",ddcd9d1c01b2f2cf0a8f37d36844db2d
 	}
 }
