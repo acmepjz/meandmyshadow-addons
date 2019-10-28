@@ -70,12 +70,12 @@ category(levelpacks){
 		license=CC0
 	}
 	entry("Land of Boxes") {
-		file="levelpacks/Land_of_Boxes_Demo.zip"
+		file="levelpacks/Land_of_Boxes.zip"
 		author=Wuzzy
-		version=05001
+		version=05101
 		description="Push your way to victory! Utilize the pushable blocks to reach the exit.
 
-NOTE: This version is for version 0.5.0 of Me and My Shadow, with all levels containing unsupported blocks (shadow boxes, shadow spikes) removed. This levelpack contains 19 levels."
+This levelpack contains 25 levels, all of them with pushable blocks (boxes). This levelpack also features the new shadow box and shadow spikes in the upcoming (0.5.1) version."
 		license=CC0
 		website="https://forum.freegamedev.net/viewtopic.php?f=48&t=12633"
 		screenshot="screenshots/Land_of_Boxes_preview.jpg",ab835a2697b506dda0c3d5d9b3b1f5b1
